@@ -2,13 +2,25 @@ import pool from "../config/db.js"
 
 export const getAllProducts = async (req, res) => {
     try {
-        const result = await pool.query(
-            "SELECT * FROM products ORDER BY id ASC"
-        )
-        res.json(result.rows)
-    } catch (error) {
-        res.status(500).json({ error: "Error al obtener productos" })
-    }
+    console.log('GET /products - inicio')
+
+    const result = await pool.query('SELECT * FROM products')
+
+    console.log('Query OK, rows:', result.rows)
+
+    return res.status(200).json(result.rows)
+  } catch (error) {
+    console.error('ERROR REAL:', error)
+    return res.status(500).json({ error: 'Error al obtener productos' })
+  }
+    // try {
+    //     const result = await pool.query(
+    //         "SELECT * FROM products ORDER BY id ASC"
+    //     )
+    //     res.json(result.rows)
+    // } catch (error) {
+    //     res.status(500).json({ error: "Error al obtener productos" })
+    // }
 }
 
 export const getProductById = async (req, res) => {
