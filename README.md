@@ -82,14 +82,21 @@ npm install
 
 3. Crear archivo .env
 
+```bash
 DATABASE_URL=postgresql://usuario:password@localhost:5432/novastore_db
 PORT=3000
+```
 
 4. Ejecutar en modo desarrollo
 
 ```bash
 npm run dev
 ```
+
+---
+
+## 🌐 API en producción
+https://novastore-api.onrender.com
 
 ---
 
